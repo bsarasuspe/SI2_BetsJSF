@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #b7e1fb;
+}
+
+h2 {
+	color: #000000;
+	text-align: center;
+}
+
+p {
+	font-family: verdana;
+	font-size: 20px;
+}
+
+#container {
+	background: white;
+	padding: 20px;
+	border-radius: 5px;
+	width:300px;
+	margin:auto;
+}
+
+#queryContainer {
+	padding: 20px;
+	border-radius: 5px;
+	width:720px;
+	margin:auto;
+}
+
+#container2 {
+	background: white;
+	padding: 20px;
+	border-radius: 5px;
+	width:300px;
+	margin-left:20px;
+	float:left;
+}

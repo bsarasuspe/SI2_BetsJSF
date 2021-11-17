@@ -7,24 +7,23 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-	<title>Query questions</title>
+	<title>Main</title>
 	<h:outputStylesheet library="css" name="style.css" />
 </h:head>
 <h:body>
-	<h2>QUERY QUESTIONS</h2>
-	<div id="queryContainer">
-		<div id="container2">
-			<b>Event date:</b>
-			<p:calendar id="data" value="#{login.data}" navigator="true"
-				mode="inline">
-				<p:ajax event="dateSelect" listener="#{login.onDateSelect}"
-					update="mezuak"></p:ajax>
-			</p:calendar>
-		</div>
-		<div id="container2">
-			<b>Events:</b>
-		</div>
+	<div id="container">
+		<center>
+			<h2>SELECT OPTION</h2>
+			<h:form>
+				<h:commandButton value="Query questions" action="query"
+					style="width:300px;height:40px;" styleClass="menu" />
+			</h:form>
+			<h:form>
+				<h:commandButton value="Create question" action="create"
+					style="width:300px;height:40px;margin-top:20px;" />
+			</h:form>
+		</center>
 	</div>
-	<h:messages id="mezuak" style="color:blue" />
+<h:messages id="mezuak" style="color:blue"/>
 </h:body>
 </html>

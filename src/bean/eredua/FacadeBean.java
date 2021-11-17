@@ -1,7 +1,8 @@
-package bean;
+package bean.eredua;
 
 import businessLogic.BLFacade;
 import businessLogic.BLFacadeImplementation;
+import dataAccess.DataAccess;
 
 public class FacadeBean {
 	private static FacadeBean singleton = new FacadeBean();
@@ -9,7 +10,7 @@ public class FacadeBean {
 
 	private FacadeBean() {
 		try {
-			facadeInterface = new BLFacadeImplementation();
+			facadeInterface = new BLFacadeImplementation(new DataAccess());
 		} catch (Exception e) {
 			System.out.println("FacadeBean: negozioaren logika sortzean errorea: " + e.getMessage());
 		}
