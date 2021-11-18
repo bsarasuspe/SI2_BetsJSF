@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16367089113700" configfile="/BetsJSF/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="CreateQuestions.xhtml" x="409" y="384" id="pf16367089786891" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf16371432833850" path="/CreateQuestions.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="QueryQuestions.xhtml" x="410" y="168" id="pf16367089786895" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf16371432833851" path="/QueryQuestions.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="Main.xhtml" x="216" y="288" id="pf16371432833852" outlinks="pf16371432833851 pf16371432833850" path="/Main.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="CreateQuestions.xhtml" x="409" y="384" id="pf16367089786891" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf16372303507620" inlinks="pf16371432833850" path="/CreateQuestions.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="QueryQuestions.xhtml" x="410" y="168" id="pf16367089786895" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" outlinks="pf16372303507631" inlinks="pf16371432833851" path="/QueryQuestions.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Main.xhtml" x="216" y="288" id="pf16371432833852" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf16371432833851 pf16371432833850" inlinks="pf16372303507631 pf16372303507620" path="/Main.xhtml"/>
   <links id="pf16371432833851" target="pf16367089786895" source="pf16371432833852" outcome="query"/>
   <links id="pf16371432833850" target="pf16367089786891" source="pf16371432833852" outcome="create"/>
+  <links id="pf16372303507631" target="pf16371432833852" source="pf16367089786895" outcome="return"/>
+  <links id="pf16372303507620" target="pf16371432833852" source="pf16367089786891" outcome="return"/>
 </pageflow:Pageflow>

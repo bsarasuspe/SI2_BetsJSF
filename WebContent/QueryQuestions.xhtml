@@ -12,19 +12,47 @@
 </h:head>
 <h:body>
 	<h2>QUERY QUESTIONS</h2>
-	<div id="queryContainer">
-		<div id="container2">
-			<b>Event date:</b>
-			<p:calendar id="data" value="#{login.data}" navigator="true"
-				mode="inline">
-				<p:ajax event="dateSelect" listener="#{login.onDateSelect}"
-					update="mezuak"></p:ajax>
-			</p:calendar>
+	<h:form id="nireForm">
+		<div id="queryContainer">
+			<div id="container2">
+				<b>Event date:</b>
+				<p:calendar id="data" value="#{queryQuestionsBean.data}" navigator="true"
+					mode="inline">
+					<p:ajax event="dateSelect" listener="#{queryQuestionsBean.onDateSelect}"
+						update="mezuak"></p:ajax>
+				</p:calendar>
+				<h:commandButton value="Itzuli" action="#{facadeBean.getItzuli}"
+				style="width:300px;height:40px;margin-top:20px;" />
+				<h:messages id="mezuak" style="color:blue" />
+			</div>
+			<div id="container2">
+				<b>Events:</b>
+				<p:dataTable id="taulaE" value="#{queryQuestionsBean.gertaerak}" var="item"
+					selectionMode="single" selection="#{queryQuestionsBean.gertaera}" border="1"
+					rowKey="#{item.kodea}"
+					update=":nireForm:aukeratua :nireForm:mezuak">
+					<p:ajax event="rowSelect" listener="#{queryQuestionsBean.onEventSelect}"
+						update=":nireForm:aukeratua :nireForm:mezuak"></p:ajax>
+					<f:facet name="header">Events:</f:facet>
+					<p:column headerText="Events #">#{item.eventNumber}</p:column>
+					<p:column headerText="Event">#{item.description}</p:column>
+				</p:dataTable>
+			</div>
+			<div id="container2">
+				<b>Questions for the event :</b>
+				<p:dataTable id="taulaQ" value="#{queryQuestionsBean.galderak}" var="item"
+					selectionMode="single" selection="#{queryQuestionsBean.galdera}" border="1"
+					rowKey="#{item.kodea}"
+					update=":nireForm:aukeratua :nireForm:mezuak">
+					<p:ajax event="rowSelect" listener="#{queryQuestionsBean.onQuestionSelect}"
+						update=":nireForm:aukeratua :nireForm:mezuak"></p:ajax>
+					<f:facet name="header">Questions:</f:facet>
+					<p:column headerText="Question #">#{item.questionNumber}</p:column>
+					<p:column headerText="Question">#{item.question}</p:column>
+				</p:dataTable>
+			</div>
 		</div>
-		<div id="container2">
-			<b>Events:</b>
-		</div>
-	</div>
-	<h:messages id="mezuak" style="color:blue" />
+		<h:outputText id="aukeratua" value="#{queryQuestionsBean.gertaera}" style="color:red" />
+	</h:form>
 </h:body>
 </html>
