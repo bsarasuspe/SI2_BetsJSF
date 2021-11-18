@@ -1,10 +1,74 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
-</head>
-<body>KAIXO NIKOLAS
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Create questions</title>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+<h:body>
+	<h2>CREATE QUESTIONS</h2>
+	<h:form id="nireForm">
+		<div id="queryContainer">
+			<div id="column">
+				<div id="container2">
+					<b>Event date:</b>
+					<p:calendar id="data" value="#{queryQuestionsBean.data}"
+						navigator="true" mode="inline">
+						<p:ajax event="dateSelect"
+							listener="#{queryQuestionsBean.onDateSelect}"
+							update=":nireForm:mezuak :nireForm:zerrenda"></p:ajax>
+					</p:calendar>
+					<h:commandButton value="Return" action="#{facadeBean.getItzuli}"
+						style="width:300px;height:40px;margin-top:20px;" />
+				</div>
+				<div id="container2">
+					<b>Mezuak:</b>
+					<h:messages id="mezuak" style="color:blue" />
+				</div>
+			</div>
+			<div id="column">
+				<div id="container2">
+					<b>Events:</b><br></br>
+					<h:selectOneMenu id="zerrenda"
+						value="#{queryQuestionsBean.gertaera}"
+						converter="omnifaces.SelectItemsConverter">
+						<f:selectItems value="#{queryQuestionsBean.gertaerak}" />
+						<f:ajax event="change" listener="#{queryQuestionsBean.listener}"
+							render="" />
+					</h:selectOneMenu>
+				</div>
+				<div id="container2">
+					<b>Create question:</b>
+					<table>
+						<tr>
+							<td>Question:</td>
+							<br></br>
+							<td><h:inputText id="question"
+									value="#{queryQuestionsBean.questionValue}">
+								</h:inputText></td>
+							<td><h:message for="question" style="color:red" /></td>
+						</tr>
+						<tr>
+							<td>Min bet:</td>
+							<br></br>
+							<td><h:inputText id="minbet"
+									value="#{queryQuestionsBean.minBetValue}">
+									<f:ajax execute="minbet" render="mezuak" />
+								</h:inputText></td>
+							<td><h:message for="minbet" style="color:red" /></td>
+						</tr>
+					</table>
+					<h:commandButton value="Create question"
+						action="#{queryQuestionsBean.createQuestion}"
+						style="width:300px;height:40px;margin-top:20px;" />
+				</div>
+			</div>
+		</div>
+	</h:form>
+</h:body>
 </html>

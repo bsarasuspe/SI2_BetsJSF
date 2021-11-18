@@ -22,6 +22,10 @@ p {
 	margin:auto;
 }
 
+#column{
+	float:left;
+}
+
 #queryContainer {
 	padding: 20px;
 	border-radius: 5px;
@@ -35,6 +39,5 @@ p {
 	border-radius: 5px;
 	width:300px;
 	margin-left:20px;
-	float:left;
 	margin-bottom:20px;
 }
