@@ -19,7 +19,7 @@
 					<b>Event date:</b>
 					<p:calendar id="data" value="#{queryQuestionsBean.data}"
 						navigator="true" mode="inline">
-						<p:ajax event="dateSelect"
+						<p:ajax event="dateSelect" 
 							listener="#{queryQuestionsBean.onDateSelect}"
 							update=":nireForm:mezuak :nireForm:zerrenda"></p:ajax>
 					</p:calendar>

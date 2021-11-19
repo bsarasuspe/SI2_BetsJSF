@@ -14,7 +14,7 @@ import dataAccess.DataAccess;
 
 public class FacadeBean {
 	private static FacadeBean singleton = new FacadeBean();
-	private static BLFacade facadeInterface;
+	private static BLFacade facadeInterface; 
 	private Date data;
 
 	private FacadeBean() {

@@ -18,7 +18,7 @@ import exceptions.QuestionAlreadyExist;
 
 public class QueryQuestionsBean {
 
-	private BLFacade facadeBL;
+	private BLFacade facadeBL; 
 	private Vector<Event> gertaerak = new Vector<Event>();
 	private Event gertaera;
 	private Vector<Question> galderak = new Vector<Question>();
