@@ -24,7 +24,7 @@ public class QueryQuestionsBean {
 	private Vector<Question> galderak = new Vector<Question>();
 	private Question galdera;
 	private Date data;
-	private float minBetValue;
+	private float minBet;
 	private String questionValue;
 
 	public QueryQuestionsBean() {
@@ -56,7 +56,7 @@ public class QueryQuestionsBean {
 	}
 
 	public String getItzuli() {
-		return "itzuli";
+		return "return";
 	}
 
 	public Date getData() {
@@ -96,16 +96,17 @@ public class QueryQuestionsBean {
 	}
 
 	public void listener(AjaxBehaviorEvent event) {
-		//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Selected event: "));
+		// FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Selected
+		// event: "));
 		this.gertaera = (Event) event.getSource();
 	}
 
-	public double getMinBetValue() {
-		return minBetValue;
+	public float getMinBet() {
+		return minBet;
 	}
 
-	public void setMinBetValue(float minBetValue) {
-		this.minBetValue = minBetValue;
+	public void setMinBet(float minBetValue) {
+		this.minBet = minBetValue;
 	}
 
 	public String getQuestionValue() {
@@ -115,9 +116,10 @@ public class QueryQuestionsBean {
 	public void setQuestionValue(String questionValue) {
 		this.questionValue = questionValue;
 	}
-	
-	public void createQuestion() throws EventFinished, QuestionAlreadyExist {
-		facadeBL.createQuestion(this.gertaera, this.questionValue, this.minBetValue);
-	}
 
+	public void createQuestion() throws EventFinished, QuestionAlreadyExist {
+		facadeBL.createQuestion(this.gertaera, this.questionValue, this.minBet);
+		FacesContext.getCurrentInstance().addMessage("nireForm:mezuak",
+				new FacesMessage("Question created: " + this.questionValue));
+	}
 }

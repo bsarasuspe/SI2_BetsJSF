@@ -23,7 +23,7 @@
 							listener="#{queryQuestionsBean.onDateSelect}"
 							update=":nireForm:mezuak :nireForm:zerrenda"></p:ajax>
 					</p:calendar>
-					<h:commandButton value="Return" action="#{facadeBean.getItzuli}"
+					<h:commandButton value="Return" action="#{queryQuestionsBean.getItzuli}"
 						style="width:300px;height:40px;margin-top:20px;" />
 				</div>
 				<div id="container2">
@@ -57,7 +57,7 @@
 							<td>Min bet:</td>
 							<br></br>
 							<td><h:inputText id="minbet"
-									value="#{queryQuestionsBean.minBetValue}">
+									value="#{queryQuestionsBean.minBet}">
 									<f:ajax execute="minbet" render="mezuak" />
 								</h:inputText></td>
 							<td><h:message for="minbet" style="color:red" /></td>
