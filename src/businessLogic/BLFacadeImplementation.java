@@ -2,6 +2,7 @@ package businessLogic;
 //hola
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.Vector;
 
 import configuration.ConfigXML;
@@ -81,9 +82,9 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * @param date in which events are retrieved
 	 * @return collection of events
 	 */
-	public Vector<Event> getEvents(Date date)  {
+	public Set<Event> getEvents(Date date)  {
 		dbManager.open();
-		Vector<Event>  events=dbManager.getEvents(date);
+		Set<Event>  events=dbManager.getEvents(date);
 		dbManager.close();
 		return events;
 	}
@@ -95,9 +96,9 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * @param date of the month for which days with events want to be retrieved 
 	 * @return collection of dates
 	 */
-	public Vector<Date> getEventsMonth(Date date) {
+	public Set<Date> getEventsMonth(Date date) {
 		dbManager.open();
-		Vector<Date>  dates=dbManager.getEventsMonth(date);
+		Set<Date>  dates=dbManager.getEventsMonth(date);
 		dbManager.close();
 		return dates;
 	}

@@ -70,6 +70,5 @@ public interface DataAccessInterface {
 	 */
 	boolean existQuestion(Event event, String question);
 
-	
 
 }

@@ -1,2 +1,6 @@
-/domain/
+/bean/
+/businessLogic/
+/configuration/
 /dataAccess/
+/domain/
+/exceptions/

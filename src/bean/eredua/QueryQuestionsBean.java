@@ -2,6 +2,7 @@ package bean.eredua;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.Vector;
 
 import javax.faces.application.FacesMessage;
@@ -19,9 +20,9 @@ import exceptions.QuestionAlreadyExist;
 public class QueryQuestionsBean {
 
 	private BLFacade facadeBL; 
-	private Vector<Event> gertaerak = new Vector<Event>();
+	private Set<Event> gertaerak;
 	private Event gertaera;
-	private Vector<Question> galderak = new Vector<Question>();
+	private Set<Question> galderak;
 	private Question galdera;
 	private Date data;
 	private float minBet;
@@ -31,19 +32,19 @@ public class QueryQuestionsBean {
 		facadeBL = FacadeBean.getBusinessLogic();
 	}
 
-	public Vector<Event> getGertaerak() {
+	public Set<Event> getGertaerak() {
 		return gertaerak;
 	}
 
-	public void setGertaerak(Vector<Event> gertaerak) {
+	public void setGertaerak(Set<Event> gertaerak) {
 		this.gertaerak = gertaerak;
 	}
 
-	public Vector<Question> getGalderak() {
+	public Set<Question> getGalderak() {
 		return galderak;
 	}
 
-	public void setGalderak(Vector<Question> galderak) {
+	public void setGalderak(Set<Question> galderak) {
 		this.galderak = galderak;
 	}
 
