@@ -4,6 +4,8 @@ import java.io.*;
 
 import javax.persistence.*;
 
+import domain.Event;
+
 @SuppressWarnings("serial")
 @Entity
 public class Question implements Serializable {

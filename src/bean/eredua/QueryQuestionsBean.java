@@ -20,9 +20,9 @@ import exceptions.QuestionAlreadyExist;
 public class QueryQuestionsBean {
 
 	private BLFacade facadeBL; 
-	private Set<Event> gertaerak;
+	private List<Event> gertaerak;
 	private Event gertaera;
-	private Set<Question> galderak;
+	private List<Question> galderak;
 	private Question galdera;
 	private Date data;
 	private float minBet;
@@ -32,19 +32,19 @@ public class QueryQuestionsBean {
 		facadeBL = FacadeBean.getBusinessLogic();
 	}
 
-	public Set<Event> getGertaerak() {
+	public List<Event> getGertaerak() {
 		return gertaerak;
 	}
 
-	public void setGertaerak(Set<Event> gertaerak) {
+	public void setGertaerak(List<Event> gertaerak) {
 		this.gertaerak = gertaerak;
 	}
 
-	public Set<Question> getGalderak() {
+	public List<Question> getGalderak() {
 		return galderak;
 	}
 
-	public void setGalderak(Set<Question> galderak) {
+	public void setGalderak(List<Question> galderak) {
 		this.galderak = galderak;
 	}
 

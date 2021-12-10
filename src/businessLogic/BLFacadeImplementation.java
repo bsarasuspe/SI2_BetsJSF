@@ -1,15 +1,18 @@
 package businessLogic;
 //hola
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.Vector;
 
+import businessLogic.BLFacade;
 import configuration.ConfigXML;
 import dao.ObjectDbDAOManager;
 import dataAccess.DataAccessInterface;
-import domain.Question;
+import dataAccess.HibernateDataAccessInterface;
 import domain.Event;
+import domain.Question;
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
 
@@ -17,34 +20,10 @@ import exceptions.QuestionAlreadyExist;
  * It implements the business logic as a web service.
  */
 public class BLFacadeImplementation  implements BLFacade {
-	DataAccessInterface dbManager;
+	HibernateDataAccessInterface dbManager;
 
-	public BLFacadeImplementation()  {		
-		System.out.println("Creating BLFacadeImplementation instance");
-		ConfigXML c=ConfigXML.getInstance();
-		
-		/*if (c.getDataBaseOpenMode().equals("initialize")) {
-			
-		    dbManager=new DataAccessInterface(new ObjectDbDAOManager());
-			dbManager.initializeDB();
-			dbManager.close();
-			}
-		*/
-	}
-	
-    public BLFacadeImplementation(DataAccessInterface da)  {
-		
-		System.out.println("Creating BLFacadeImplementation instance with DataAccess parameter");
-		ConfigXML c=ConfigXML.getInstance();
-		
-		if (c.getDataBaseOpenMode().equals("initialize")) {
-			da.emptyDatabase();
-			da.open();
-			da.initializeDB();
-			da.close();
-
-		}
-		dbManager=da;		
+    public BLFacadeImplementation(HibernateDataAccessInterface da)  {
+	 			 
 	}
 	
 
@@ -82,10 +61,8 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * @param date in which events are retrieved
 	 * @return collection of events
 	 */
-	public Set<Event> getEvents(Date date)  {
-		dbManager.open();
-		Set<Event>  events=dbManager.getEvents(date);
-		dbManager.close();
+	public List<Event> getEvents(Date date)  {
+		List<Event> events=dbManager.getEvents(date);
 		return events;
 	}
 
@@ -96,9 +73,9 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * @param date of the month for which days with events want to be retrieved 
 	 * @return collection of dates
 	 */
-	public Set<Date> getEventsMonth(Date date) {
+	public List<Date> getEventsMonth(Date date) {
 		dbManager.open();
-		Set<Date>  dates=dbManager.getEventsMonth(date);
+		List<Date>  dates=dbManager.getEventsMonth(date);
 		dbManager.close();
 		return dates;
 	}

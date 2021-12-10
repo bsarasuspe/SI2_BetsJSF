@@ -2,10 +2,14 @@ package domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 
 import javax.persistence.*;
+
+import domain.Event;
+import domain.Question;
 
 @Entity
 public class Event implements Serializable {
@@ -19,13 +23,13 @@ public class Event implements Serializable {
 	private String description; 
 	private Date eventDate;
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
-	private Set<Question> questions;
+	private List<Question> questions;
 
-	public Set<Question> getQuestions() {
+	public List<Question> getQuestions() {
 		return questions;
 	}
 
-	public void setQuestions(Set<Question> questions) {
+	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
 

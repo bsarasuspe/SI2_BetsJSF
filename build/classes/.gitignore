@@ -4,3 +4,5 @@
 /dataAccess/
 /domain/
 /exceptions/
+/eredua/
+/hibernate.cfg.xml
