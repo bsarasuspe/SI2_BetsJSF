@@ -22,11 +22,12 @@ public class Event implements Serializable {
 	private Integer eventNumber;
 	private String description; 
 	private Date eventDate;
-	@OneToMany(targetEntity = Question.class, mappedBy = "question", cascade = { CascadeType.REMOVE,
+	@OneToMany(targetEntity = Question.class, mappedBy = "event", cascade = { CascadeType.REMOVE,
 			CascadeType.PERSIST }, fetch = FetchType.EAGER)
-	private List<Question> questions;
+	private List<Question> questions = new Vector<Question>();
 
 	public List<Question> getQuestions() {
+		System.out.println(questions.size());
 		return questions;
 	}
 
