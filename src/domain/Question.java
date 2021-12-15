@@ -4,6 +4,9 @@ import java.io.*;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import domain.Event;
 
 @SuppressWarnings("serial")
@@ -15,7 +18,9 @@ public class Question implements Serializable {
 	private Integer questionNumber;
 	private String question; 
 	private float betMinimum;
-	private String result;  
+	private String result; 
+	@ManyToOne(targetEntity = Event.class, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SELECT)
 	private Event event;
 
 	public Question(){
@@ -35,7 +40,7 @@ public class Question implements Serializable {
 		this.question = query;
 		this.betMinimum=betMinimum;
 
-		//this.event = event;
+		this.event = event;
 	}
 
 	/**

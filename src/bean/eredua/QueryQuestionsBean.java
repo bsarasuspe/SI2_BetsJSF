@@ -79,6 +79,7 @@ public class QueryQuestionsBean {
 	public void onDateSelect(SelectEvent event) {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Selected date: " + event.getObject()));
 		this.gertaerak = facadeBL.getEvents((Date) event.getObject());
+		System.out.println(gertaerak.size());
 	}
 
 	public void onEventSelect(SelectEvent event) {

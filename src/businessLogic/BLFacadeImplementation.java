@@ -23,7 +23,7 @@ public class BLFacadeImplementation  implements BLFacade {
 	HibernateDataAccessInterface dbManager;
 
     public BLFacadeImplementation(HibernateDataAccessInterface da)  {
-	 			 
+	 	dbManager = da;
 	}
 	
 

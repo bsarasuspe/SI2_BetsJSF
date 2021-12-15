@@ -30,6 +30,7 @@ public interface HibernateDataAccessInterface {
 	 * and questions. This method is invoked by the business logic (constructor of
 	 * BLFacadeImplementation) when the option "initialize" is declared in the tag
 	 * dataBaseOpenMode of resources/config.xml file
+	 * @throws QuestionAlreadyExist 
 	 */
 	void initializeDB();
 

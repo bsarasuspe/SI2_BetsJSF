@@ -22,7 +22,8 @@ public class Event implements Serializable {
 	private Integer eventNumber;
 	private String description; 
 	private Date eventDate;
-	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
+	@OneToMany(targetEntity = Question.class, mappedBy = "question", cascade = { CascadeType.REMOVE,
+			CascadeType.PERSIST }, fetch = FetchType.EAGER)
 	private List<Question> questions;
 
 	public List<Question> getQuestions() {
