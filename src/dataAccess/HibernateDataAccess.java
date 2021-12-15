@@ -89,13 +89,12 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 		q5 = ev3.addQuestion("¿Quién ganará el partido?", 1);
 		q6 = ev3.addQuestion("¿Habrá goles en la primera parte?", 2); 
 		
-		/*
-		createQuestion(ev1, "¿Quién ganará el partido?", 1);
-		createQuestion(ev1, "¿Quién meterá el primer gol?", 2);
-		createQuestion(ev2, "¿Quién ganará el partido?", 1);
-		createQuestion(ev2, "¿Cuántos goles se marcarán?", 2);
-		createQuestion(ev3, "¿Quién ganará el partido?", 1);
-		createQuestion(ev3, "¿Habrá goles en la primera parte?", 2); */
+		session.save(q1);
+		session.save(q2);
+		session.save(q3);
+		session.save(q4);
+		session.save(q5);
+		session.save(q6);
 		
 		session.getTransaction().commit();
 
@@ -109,7 +108,7 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 		q.setQuestion(question);
 		q.setBetMinimum(betMinimum);
 		try {
-			q.setEvent((Event) session.get(Event.class, event));
+			q.setEvent((Event) session.get(Event.class, event.getEventNumber()));
 			session.persist(q);
 			session.getTransaction().commit();
 		} catch (org.hibernate.PropertyValueException ex) {
@@ -167,13 +166,12 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 		String question = "Galdera proba";
 		float betMinimum = (float) 1.2;
 		Event ev1 = new Event(1, "Atlético-Athletic", UtilDate.newDate(year, month, 17));
-		Event event = ev1;
 		
 		Question q2 = new Question();
 		q2.setQuestion(question);
 		q2.setBetMinimum(betMinimum);
 		try {
-			q2.setEvent((Event) session.get(Event.class, event.getEventNumber()));
+			q2.setEvent((Event) session.get(Event.class, ev1.getEventNumber()));
 			session.persist(q2);
 			session.getTransaction().commit();
 		} catch (org.hibernate.PropertyValueException ex) {
@@ -185,8 +183,6 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 			System.out.println("Errorea: gertaera ez da existitzen: " + ex.toString());
 			q2 = null;
 		}
-		
-		session.getTransaction().commit();
         
 	}
 

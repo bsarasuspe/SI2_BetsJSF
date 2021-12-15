@@ -1,8 +1,7 @@
-/bean/
 /businessLogic/
 /configuration/
 /dataAccess/
 /domain/
-/exceptions/
 /eredua/
+/exceptions/
 /hibernate.cfg.xml
