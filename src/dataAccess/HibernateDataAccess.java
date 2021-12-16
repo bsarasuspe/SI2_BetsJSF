@@ -18,7 +18,7 @@ import eredua.HibernateUtil;
 import exceptions.QuestionAlreadyExist;
 
 public class HibernateDataAccess implements HibernateDataAccessInterface {
-	
+
 	@Override
 	public void open() {
 		// TODO Auto-generated method stub
@@ -52,7 +52,6 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
-		
 		Event ev1 = new Event(1, "Atlético-Athletic", UtilDate.newDate(year, month, 17));
 		Event ev2 = new Event(2, "Eibar-Barcelona", UtilDate.newDate(year, month, 17));
 		Event ev3 = new Event(3, "Getafe-Celta", UtilDate.newDate(year, month, 17));
@@ -63,7 +62,7 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 		Event ev8 = new Event(8, "Girona-Leganés", UtilDate.newDate(year, month, 17));
 		Event ev9 = new Event(9, "Real Sociedad-Levante", UtilDate.newDate(year, month, 17));
 		Event ev10 = new Event(10, "Betis-Real Madrid", UtilDate.newDate(year, month, 17));
-		
+
 		session.save(ev1);
 		session.save(ev2);
 		session.save(ev3);
@@ -81,21 +80,21 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 		Question q4;
 		Question q5;
 		Question q6;
-		
+
 		q1 = ev1.addQuestion("¿Quién ganará el partido?", 1);
 		q2 = ev1.addQuestion("¿Quién meterá el primer gol?", 2);
 		q3 = ev2.addQuestion("¿Quién ganará el partido?", 1);
 		q4 = ev2.addQuestion("¿Cuántos goles se marcarán?", 2);
 		q5 = ev3.addQuestion("¿Quién ganará el partido?", 1);
-		q6 = ev3.addQuestion("¿Habrá goles en la primera parte?", 2); 
-		
+		q6 = ev3.addQuestion("¿Habrá goles en la primera parte?", 2);
+
 		session.save(q1);
 		session.save(q2);
 		session.save(q3);
 		session.save(q4);
 		session.save(q5);
 		session.save(q6);
-		
+
 		session.getTransaction().commit();
 
 	}
@@ -156,17 +155,17 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 			month = 0;
 			year += 1;
 		}
-		
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		
+
 		System.out.println(" ");
 		System.out.println("Sortu galdera bat:");
-		
+
 		String question = "Galdera proba";
 		float betMinimum = (float) 1.2;
 		Event ev1 = new Event(1, "Atlético-Athletic", UtilDate.newDate(year, month, 17));
-		
+
 		Question q2 = new Question();
 		q2.setQuestion(question);
 		q2.setBetMinimum(betMinimum);
@@ -183,7 +182,7 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 			System.out.println("Errorea: gertaera ez da existitzen: " + ex.toString());
 			q2 = null;
 		}
-        
+
 	}
 
 }

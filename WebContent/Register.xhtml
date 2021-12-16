@@ -8,51 +8,55 @@
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Register</title>
-	<h:outputStylesheet library="css" name="style.css" /> 
+	<h:outputStylesheet library="css" name="style.css" />
 </h:head>
 <h:body>
 	<div id="container">
 		<center>
 			<h2>REGISTER</h2>
-			<table>
-				<tr>
-					<td>Eposta:</td>
-					<td><h:inputText id="question"
-							value="#{queryQuestionsBean.questionValue}">
-						</h:inputText></td>
-					<td><h:message for="question" style="color:red" /></td>
-				</tr>
-				<tr>
-					<td>Erabiltzaile izena:</td>
-					<td><h:inputText id="question"
-							value="#{queryQuestionsBean.questionValue}">
-						</h:inputText></td>
-					<td><h:message for="question" style="color:red" /></td>
-				</tr>
-				<tr>
-					<td>Pasahitza:</td>
-					<br></br>
-					<td><h:inputText id="minbet"
-							value="#{queryQuestionsBean.minBet}">
-							<f:ajax execute="minbet" render="mezuak" />
-						</h:inputText></td>
-					<td><h:message for="minbet" style="color:red" /></td>
-				</tr>
-				<tr>
-					<td>Errepikatu pasahitza:</td>
-					<br></br>
-					<td><h:inputText id="minbet"
-							value="#{queryQuestionsBean.minBet}">
-							<f:ajax execute="minbet" render="mezuak" />
-						</h:inputText></td>
-					<td><h:message for="minbet" style="color:red" /></td>
-				</tr>
-			</table>
-			<h:commandButton value="Login"
-				action="#{queryQuestionsBean.createQuestion}"
-				style="width:300px;height:40px;margin-top:20px;" />
+			<h:form id="nireForm">
+				<table>
+					<tr>
+						<td>Email:</td>
+						<td><h:inputText id="email"
+								value="#{queryQuestionsBean.questionValue}">
+							</h:inputText></td>
+						<td><h:message for="email" style="color:red" /></td>
+					</tr>
+					<tr>
+						<td>Username:</td>
+						<td><h:inputText id="username"
+								value="#{queryQuestionsBean.questionValue}">
+							</h:inputText></td>
+						<td><h:message for="username" style="color:red" /></td>
+					</tr>
+					<tr>
+						<td>Password:</td>
+						<td><h:inputSecret id="pass1" redisplay="true"
+								value="#{login.pasahitza}">
+								<f:ajax execute="pass1" render="mezuak" />
+							</h:inputSecret></td>
+						<td><h:message for="pass1" style="color:red" /></td>
+					</tr>
+					<tr>
+						<td>Repeat password:</td>
+						<td><h:inputSecret id="pass2" redisplay="true"
+								value="#{login.pasahitza}">
+								<f:ajax execute="pass2" render="mezuak" />
+							</h:inputSecret></td>
+						<td><h:message for="pass2" style="color:red" /></td>
+					</tr>
+				</table>
+				<h:commandButton value="Login"
+					action="#{queryQuestionsBean.register}"
+					style="width:300px;height:40px;margin-top:20px;" />
+			</h:form>
+			<h:form>
+				<h:commandButton value="Return" action="return"
+					style="width:300px;height:40px;margin-top:20px;" />
+			</h:form>
 		</center>
 	</div>
-<h:messages id="mezuak" style="color:blue"/>
+	<h:messages id="mezuak" style="color:blue" />
 </h:body>
 </html>
