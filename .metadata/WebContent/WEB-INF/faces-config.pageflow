@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16367089113700" configfile="/BetsJSF/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="CreateQuestions.xhtml" x="409" y="384" id="pf16367089786891" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf16372303507620" inlinks="pf16371432833850" path="/CreateQuestions.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="QueryQuestions.xhtml" x="410" y="168" id="pf16367089786895" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" outlinks="pf16372303507631" inlinks="pf16371432833851" path="/QueryQuestions.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="Main.xhtml" x="216" y="288" id="pf16371432833852" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf16371432833851 pf16371432833850" inlinks="pf16372303507631 pf16372303507620" path="/Main.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="CreateQuestions.xhtml" x="731" y="360" id="pf16367089786891" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf16372303507620" inlinks="pf16371432833850" path="/CreateQuestions.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="QueryQuestions.xhtml" x="732" y="144" id="pf16367089786895" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf16372303507631" inlinks="pf16371432833851" path="/QueryQuestions.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Main.xhtml" x="538" y="264" id="pf16371432833852" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf16371432833851 pf16371432833850" inlinks="pf16372303507631 pf16372303507620 pf16396492144650" path="/Main.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Login.xhtml" x="384" y="264" id="pf16396492144656" outlinks="pf16396492144650 pf16396508024808" inlinks="pf16396508024809" path="/Login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Register.xhtml" x="384" y="120" id="pf16396492144657" outlinks="pf163965080248010" inlinks="pf163965080248011" path="/Register.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="MainLogin.xhtml" x="168" y="264" id="pf163965080248012" outlinks="pf16396508024809 pf163965080248011" inlinks="pf16396508024808 pf163965080248010" path="/MainLogin.xhtml"/>
   <links id="pf16371432833851" target="pf16367089786895" source="pf16371432833852" outcome="query"/>
   <links id="pf16371432833850" target="pf16367089786891" source="pf16371432833852" outcome="create"/>
   <links id="pf16372303507631" target="pf16371432833852" source="pf16367089786895" outcome="return"/>
   <links id="pf16372303507620" target="pf16371432833852" source="pf16367089786891" outcome="return"/>
+  <links id="pf16396492144650" target="pf16371432833852" source="pf16396492144656" outcome="login"/>
+  <links id="pf16396508024809" target="pf16396492144656" source="pf163965080248012" outcome="login"/>
+  <links id="pf16396508024808" target="pf163965080248012" source="pf16396492144656" outcome="return"/>
+  <links id="pf163965080248011" target="pf16396492144657" source="pf163965080248012" outcome="register"/>
+  <links id="pf163965080248010" target="pf163965080248012" source="pf16396492144657" outcome="return"/>
 </pageflow:Pageflow>

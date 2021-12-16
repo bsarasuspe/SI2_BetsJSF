@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Login</title>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+<h:body>
+	<div id="container">
+		<center>
+			<h2>LOGIN</h2>
+			<table>
+				<tr>
+					<td>Erabiltzaile izena:</td>
+					<td><h:inputText id="question"
+							value="#{queryQuestionsBean.questionValue}">
+						</h:inputText></td>
+					<td><h:message for="question" style="color:red" /></td>
+				</tr>
+				<tr>
+					<td>Pasahitza:</td>
+					<br></br>
+					<td><h:inputText id="minbet"
+							value="#{queryQuestionsBean.minBet}">
+							<f:ajax execute="minbet" render="mezuak" />
+						</h:inputText></td>
+					<td><h:message for="minbet" style="color:red" /></td>
+				</tr>
+			</table>
+			<h:commandButton value="Login"
+				action="#{queryQuestionsBean.createQuestion}"
+				style="width:300px;height:40px;margin-top:20px;" />
+		</center>
+	</div>
+	<h:messages id="mezuak" style="color:blue" />
+</h:body>
+</html>
