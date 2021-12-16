@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import domain.Event;
 import domain.Question;
+import domain.User;
 
 import java.util.Date;
 import java.util.List;
@@ -54,4 +55,6 @@ public interface BLFacade  {
 	public void initializeBD();
 
 	public void register(String email, String username, String password);
+	
+	public User login(String username, String password);
 }

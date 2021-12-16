@@ -13,30 +13,41 @@ import javax.persistence.OneToOne;
 @Entity
 public class User {
 	@Id
-	private String izena;
-	private String pasahitza;
+	private String username;
+	private String email;
+	private String password;
 
 	public User() {
 	}
-
-	public String getIzena() {
-		return izena;
+	
+	public User(String pUsername, String pEmail, String pPassword) {
+		this.username = pUsername;
+		this.email = pEmail;
+		this.password = pPassword;
 	}
 
-	public void setIzena(String izena) {
-		this.izena = izena;
+	public String getUsername() {
+		return username;
 	}
 
-	public String getPasahitza() {
-		return pasahitza;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public void setPasahitza(String pasahitza) {
-		this.pasahitza = pasahitza;
+	public String getEmail() {
+		return email;
 	}
 
-	public String toString() { // Erabiltzailea
-		return izena + "/" + pasahitza;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

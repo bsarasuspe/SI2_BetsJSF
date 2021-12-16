@@ -14,12 +14,13 @@ import org.primefaces.event.SelectEvent;
 import businessLogic.BLFacade;
 import domain.Event;
 import domain.Question;
+import domain.User;
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
 
 public class QueryQuestionsBean {
 
-	private BLFacade facadeBL; 
+	private BLFacade facadeBL;
 	private List<Event> gertaerak;
 	private Event gertaera;
 	private List<Question> galderak;
@@ -29,8 +30,11 @@ public class QueryQuestionsBean {
 	private String questionValue;
 	private String rUsername;
 	private String rEmail;
-	private String rPass1;
-	private String rPass2;
+	private String rPassword1;
+	private String rPassword2;
+	private String lUsername;
+	private String lPassword;
+	private User user;
 
 	public QueryQuestionsBean() {
 		facadeBL = FacadeBean.getBusinessLogic();
@@ -128,4 +132,70 @@ public class QueryQuestionsBean {
 		FacesContext.getCurrentInstance().addMessage("nireForm:mezuak",
 				new FacesMessage("Question created: " + this.questionValue));
 	}
+
+	public String getrUsername() {
+		return rUsername;
+	}
+
+	public void setrUsername(String rUsername) {
+		this.rUsername = rUsername;
+	}
+
+	public String getrEmail() {
+		return rEmail;
+	}
+
+	public void setrEmail(String rEmail) {
+		this.rEmail = rEmail;
+	}
+
+	public String getlUsername() {
+		return lUsername;
+	}
+
+	public void setlUsername(String lUsername) {
+		this.lUsername = lUsername;
+	}
+	
+	public String getrPassword1() {
+		return rPassword1;
+	}
+
+	public void setrPassword1(String rPassword1) {
+		this.rPassword1 = rPassword1;
+	}
+
+	public String getrPassword2() {
+		return rPassword2;
+	}
+
+	public void setrPassword2(String rPassword2) {
+		this.rPassword2 = rPassword2;
+	}
+
+	public String getlPassword() {
+		return lPassword;
+	}
+
+	public void setlPassword(String lPassword) {
+		this.lPassword = lPassword;
+	}
+
+	public String login() {
+		user = facadeBL.login(lUsername, lPassword);
+		if (user == null) {
+			System.out.println("Erabiltzailea ez da existitzen.");
+			return "error";
+		}else {
+			System.out.println("Ongi logeatu zara.");
+			return "ok";
+		}
+	}
+	
+	public String register() {
+		facadeBL.register(rEmail, rUsername, rPassword1);
+		System.out.println("Ongi erregistratu zara");
+		return "ok";
+	}
+
 }

@@ -14,6 +14,7 @@ import com.mysql.cj.xdevapi.Result;
 import configuration.UtilDate;
 import domain.Event;
 import domain.Question;
+import domain.User;
 import eredua.HibernateUtil;
 import exceptions.QuestionAlreadyExist;
 
@@ -121,10 +122,6 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 		}
 		return null;
 	}
-	
-	public boolean register(String email, String username, String password) {
-		return false;
-	}
 
 	@Override
 	public List<Event> getEvents(Date date) {
@@ -187,6 +184,32 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 			q2 = null;
 		}
 
+	}
+
+	@Override
+	public User login(String username, String password) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		Query q = session.createQuery("from User u where u.username = :username and u.password = :password");
+		q.setParameter("username", username);
+		q.setParameter("password", password);
+		List result = q.list();
+		session.getTransaction().commit();
+		if(result.size() == 0) {
+			return null;
+		}else {
+			User user = (User) result.get(0);
+			return user;
+		}
+	}
+
+	@Override
+	public void register(String username, String email, String password) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		User user = new User(username, email, password);
+		session.save(user);
+		session.getTransaction().commit();
 	}
 
 }

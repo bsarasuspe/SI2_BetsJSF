@@ -33,7 +33,7 @@
 					<tr>
 						<td>Password:</td>
 						<td><h:inputSecret id="pass1" redisplay="true"
-								value="#{login.rPass1}">
+								value="#{queryQuestionsBean.rPassword1}">
 								<f:ajax execute="pass1" render="mezuak" />
 							</h:inputSecret></td>
 						<td><h:message for="pass1" style="color:red" /></td>
@@ -41,13 +41,13 @@
 					<tr>
 						<td>Repeat password:</td>
 						<td><h:inputSecret id="pass2" redisplay="true"
-								value="#{login.rPass2}">
+								value="#{queryQuestionsBean.rPassword2}">
 								<f:ajax execute="pass2" render="mezuak" />
 							</h:inputSecret></td>
 						<td><h:message for="pass2" style="color:red" /></td>
 					</tr>
 				</table>
-				<h:commandButton value="Login"
+				<h:commandButton value="Register"
 					action="#{queryQuestionsBean.register}"
 					style="width:300px;height:40px;margin-top:20px;" />
 			</h:form>

@@ -6,6 +6,7 @@ import java.util.Vector;
 
 import domain.Event;
 import domain.Question;
+import domain.User;
 import exceptions.QuestionAlreadyExist;
 
 public interface HibernateDataAccessInterface {
@@ -72,5 +73,9 @@ public interface HibernateDataAccessInterface {
 	 * @return true if the event contains this the questions, false in other case
 	 */
 	boolean existQuestion(Event event, String question);
+
+	User login(String username, String password);
+	
+	void register(String username, String email, String password);
 
 }
