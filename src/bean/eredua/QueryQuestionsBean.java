@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
+import java.util.regex.Pattern;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -156,7 +157,7 @@ public class QueryQuestionsBean {
 	public void setlUsername(String lUsername) {
 		this.lUsername = lUsername;
 	}
-	
+
 	public String getrPassword1() {
 		return rPassword1;
 	}
@@ -183,19 +184,70 @@ public class QueryQuestionsBean {
 
 	public String login() {
 		user = facadeBL.login(lUsername, lPassword);
-		if (user == null) {
-			System.out.println("Erabiltzailea ez da existitzen.");
-			return "error";
+		if(lUsername.length() > 0) {
+			if(lPassword.length() > 0) {
+				if (user == null) {
+					FacesContext.getCurrentInstance().addMessage("mezuak",
+							new FacesMessage("Erabiltzailea eta pasahitza ez dira zuzenak."));
+					return "error";
+				} else {
+					return "ok";
+				}
+			}else {
+				FacesContext.getCurrentInstance().addMessage("mezuak",
+						new FacesMessage("Pasahitzak ezin du hutsa egon."));
+				return "error";
+			}
 		}else {
-			System.out.println("Ongi logeatu zara.");
-			return "ok";
+			FacesContext.getCurrentInstance().addMessage("mezuak",
+					new FacesMessage("Erabiltzaile izenak ezin du hutsa egon."));
+			return "error";
 		}
+
 	}
-	
+
 	public String register() {
-		facadeBL.register(rEmail, rUsername, rPassword1);
-		System.out.println("Ongi erregistratu zara");
-		return "ok";
+		if (rEmail.length() > 0) {
+			if(Pattern.matches("^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$", rEmail)) {
+				if (rUsername.length() > 0) {
+					if (rPassword1.length() > 0) {
+						if (rPassword2.length() > 0) {
+							if (rPassword1.equals(rPassword2)) {
+								facadeBL.register(rEmail, rUsername, rPassword1);
+								FacesContext.getCurrentInstance().addMessage("mezuak",
+										new FacesMessage("Ongi erregistratu zara."));
+								return "ok";
+							} else {
+								FacesContext.getCurrentInstance().addMessage("mezuak",
+										new FacesMessage("Pasahitzak ez dira berdinak."));
+								return "error";
+							}
+						} else {
+							FacesContext.getCurrentInstance().addMessage("mezuak",
+									new FacesMessage("Pasahitza errepikatu behar duzu."));
+							return "error";
+						}
+					} else {
+						FacesContext.getCurrentInstance().addMessage("mezuak",
+								new FacesMessage("Pasahitzak ezindu hutsa egon."));
+						return "error";
+					}
+				} else {
+					FacesContext.getCurrentInstance().addMessage("mezuak",
+							new FacesMessage("Erabiltzaileak ezin du hutsa egon."));
+					return "error";
+				}
+			}else {
+				FacesContext.getCurrentInstance().addMessage("mezuak",
+						new FacesMessage("Eposta ez da zuzena."));
+				return "error";
+			}
+		} else {
+			FacesContext.getCurrentInstance().addMessage("mezuak", 
+					new FacesMessage("Epostak ezin du hutsa egon."));
+			return "error";
+		}
+
 	}
 
 }

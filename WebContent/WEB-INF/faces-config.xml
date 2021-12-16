@@ -95,21 +95,5 @@
 			<to-view-id>/MainLogin.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	<navigation-rule>
-		<display-name>Pirata.xhtml</display-name>
-		<from-view-id>/Pirata.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>login</from-outcome>
-			<to-view-id>/Login.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<display-name>Login.xhtml</display-name>
-		<from-view-id>/Login.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>error</from-outcome>
-			<to-view-id>/Pirata.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
 
 </faces-config>
