@@ -100,5 +100,12 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 	}
 
+
+	@Override
+	public void register(String email, String username, String password) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 

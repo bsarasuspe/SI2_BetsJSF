@@ -27,6 +27,10 @@ public class QueryQuestionsBean {
 	private Date data;
 	private float minBet;
 	private String questionValue;
+	private String rUsername;
+	private String rEmail;
+	private String rPass1;
+	private String rPass2;
 
 	public QueryQuestionsBean() {
 		facadeBL = FacadeBean.getBusinessLogic();

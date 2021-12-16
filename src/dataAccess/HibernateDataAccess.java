@@ -121,6 +121,10 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 		}
 		return null;
 	}
+	
+	public boolean register(String email, String username, String password) {
+		return false;
+	}
 
 	@Override
 	public List<Event> getEvents(Date date) {

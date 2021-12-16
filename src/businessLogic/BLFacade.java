@@ -53,5 +53,5 @@ public interface BLFacade  {
 	 */	
 	public void initializeBD();
 
-	
+	public void register(String email, String username, String password);
 }
