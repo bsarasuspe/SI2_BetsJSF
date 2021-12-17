@@ -57,4 +57,6 @@ public interface BLFacade  {
 	public void register(String email, String username, String password);
 	
 	public User login(String username, String password);
+
+	public List<Event> showAllEvents();
 }

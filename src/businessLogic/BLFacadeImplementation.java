@@ -112,4 +112,10 @@ public class BLFacadeImplementation implements BLFacade {
 		return user;
 	}
 
+	@Override
+	public List<Event> showAllEvents() {
+		List<Event> result = dbManager.showAllEvents();
+		return result;
+	}
+
 }

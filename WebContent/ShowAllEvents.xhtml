@@ -7,23 +7,25 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-	<title>Main Login</title>
-	<h:outputStylesheet library="css" name="style.css" /> 
+	<title>Events</title>
+	<h:outputStylesheet library="css" name="style.css" />
 </h:head>
 <h:body>
 	<div id="container">
 		<center>
-			<h2>SELECT OPTION</h2>
-			<h:form>
-				<h:commandButton value="Login" action="login"
-					style="width:300px;height:40px;" styleClass="menu" />
-			</h:form>
-			<h:form>
-				<h:commandButton value="Register" action="register"
+			<h2>EVENTS</h2>
+			<h:selectOneMenu id="zerrenda" value="#{queryQuestionsBean.event}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{queryQuestionsBean.allEvents}" />
+				<f:ajax event="change" listener="#{queryQuestionsBean.listener}"
+					render="" />
+			</h:selectOneMenu>
+		</center>
+		<h:form>
+				<h:commandButton value="Return" action="return"
 					style="width:300px;height:40px;margin-top:20px;" />
 			</h:form>
-		</center>
+		<h:messages id="mezuak" style="color:blue" />
 	</div>
-<h:messages id="mezuak" style="color:blue"/>
 </h:body>
 </html>

@@ -212,4 +212,14 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 		session.getTransaction().commit();
 	}
 
+	@Override
+	public List<Event> showAllEvents() {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		Query q = session.createQuery("from Event e");
+		List result = q.list();
+		session.getTransaction().commit();
+		return result;
+	}
+
 }
