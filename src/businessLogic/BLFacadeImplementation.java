@@ -43,7 +43,6 @@ public class BLFacadeImplementation implements BLFacade {
 	public Question createQuestion(Event event, String question, float betMinimum)
 			throws EventFinished, QuestionAlreadyExist {
 
-		// The minimum bed must be greater than 0
 		dbManager.open();
 		Question qry = null;
 

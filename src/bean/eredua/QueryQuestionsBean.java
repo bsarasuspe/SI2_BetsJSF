@@ -88,7 +88,6 @@ public class QueryQuestionsBean {
 	public void onDateSelect(SelectEvent event) {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Selected date: " + event.getObject()));
 		this.gertaerak = facadeBL.getEvents((Date) event.getObject());
-		System.out.println(gertaerak.size());
 	}
 
 	public void onEventSelect(SelectEvent event) {
@@ -183,9 +182,9 @@ public class QueryQuestionsBean {
 	}
 
 	public String login() {
-		user = facadeBL.login(lUsername, lPassword);
 		if(lUsername.length() > 0) {
 			if(lPassword.length() > 0) {
+				user = facadeBL.login(lUsername, lPassword);
 				if (user == null) {
 					FacesContext.getCurrentInstance().addMessage("mezuak",
 							new FacesMessage("Erabiltzailea eta pasahitza ez dira zuzenak."));
