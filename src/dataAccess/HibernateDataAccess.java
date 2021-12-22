@@ -40,6 +40,7 @@ public class HibernateDataAccess implements HibernateDataAccessInterface {
 
 	@Override
 	public void initializeDB() {
+		System.out.println("Initializing");
 		Calendar today = Calendar.getInstance();
 
 		int month = today.get(Calendar.MONTH);
