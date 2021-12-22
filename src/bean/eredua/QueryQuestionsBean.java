@@ -25,6 +25,8 @@ public class QueryQuestionsBean {
 	private List<Event> gertaerak;
 	private Event gertaera;
 	private List<Question> galderak;
+	private Event event;
+	private List<Event> allEvents;
 	private Question galdera;
 	private Date data;
 	private float minBet;
@@ -39,6 +41,7 @@ public class QueryQuestionsBean {
 
 	public QueryQuestionsBean() {
 		facadeBL = FacadeBean.getBusinessLogic();
+		showAllEvents();
 	}
 
 	public List<Event> getGertaerak() {
@@ -203,6 +206,34 @@ public class QueryQuestionsBean {
 			return "error";
 		}
 
+	}
+	
+	public void showAllEvents() {
+		this.allEvents = facadeBL.showAllEvents();
+	}
+
+	public Event getEvent() {
+		return event;
+	}
+
+	public void setEvent(Event event) {
+		this.event = event;
+	}
+
+	public List<Event> getAllEvents() {
+		return allEvents;
+	}
+
+	public void setAllEvents(List<Event> allEvents) {
+		this.allEvents = allEvents;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String register() {

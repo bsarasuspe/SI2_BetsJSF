@@ -78,4 +78,6 @@ public interface HibernateDataAccessInterface {
 	
 	void register(String username, String email, String password);
 
+	List<Event> showAllEvents();
+
 }
